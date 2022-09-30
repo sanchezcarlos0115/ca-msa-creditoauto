@@ -7,7 +7,7 @@ using camsacreditoauto.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<BlogContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<CreditoAutoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 // Add services to the container.
@@ -17,7 +17,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IPost,PostImplementacion>();
+//builder.Services.AddScoped<IRepository,PostImplementacion>();
+builder.Services.AddScoped<IAsignarCliente, AsignarClienteImplementacion>();
+
+//services.AddTransient<ICustomerRepository, CustomerRepository>();
 
 var app = builder.Build();
 

@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "arquetipo.API": {
+    "ca-msa-creditoauto.API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

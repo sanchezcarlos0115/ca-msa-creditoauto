@@ -20,4 +20,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ca-msa-creditoauto.Infrastructure\ca-msa-creditoauto.Infrastructure.csproj" />
+    <ProjectReference Include="..\ca-msa-creditoauto.Repository\ca-msa-creditoauto.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
