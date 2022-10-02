@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 namespace camsacreditoauto.Infrastructure.Services;
 
 
-public class AsignarClienteImplementacion : Repository<ClientePatio>, IAsignarCliente
+public class AsignarClienteInfraestructure : Repository<ClientePatio>, IAsignarClienteInfraestructure
 {
    
-    public AsignarClienteImplementacion(CreditoAutoContext context) : base(context)
+    public AsignarClienteInfraestructure(CreditoAutoContext context) : base(context)
     {
 
     }

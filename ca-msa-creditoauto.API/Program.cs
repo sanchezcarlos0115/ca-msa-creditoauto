@@ -18,7 +18,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //builder.Services.AddScoped<IRepository,PostImplementacion>();
-builder.Services.AddScoped<IAsignarCliente, AsignarClienteImplementacion>();
+builder.Services.AddScoped<IAsignarClienteInfraestructure, AsignarClienteInfraestructure>();
 
 //services.AddTransient<ICustomerRepository, CustomerRepository>();
 

@@ -1,4 +1,5 @@
 ﻿using camsacreditoauto.Domain.Interfaces;
+using camsacreditoauto.Entity.Dto;
 using camsacreditoauto.Entity.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,32 +16,46 @@ namespace camsacreditoauto.API.Controllers;
 public class AsignarClienteController : ControllerBase
 {
    
-    private readonly IAsignarCliente _repository;
+    private readonly IAsignarClienteInfraestructure _infraest;
    
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="repository"></param>
-    public AsignarClienteController(IAsignarCliente repository)
-    {
-        _repository = repository;
-    }
-
-
    /// <summary>
    /// 
    /// </summary>
-   /// <returns></returns>
-    [HttpGet]
-    [Route("get-all")]
-    public async Task<IActionResult> GetAllAsync()
+   /// <param name="infraest"></param>
+    public AsignarClienteController(IAsignarClienteInfraestructure infraest)
     {
-        var result = await _repository.ObtenerTodosAsync();
-        if (!result.Any())
-        {
-            return NoContent();
-        }
-        return Ok(result);
+        _infraest = infraest;
+    }
+
+
+    ///// <summary>
+    ///// 
+    ///// </summary>
+    ///// <returns></returns>
+    // [HttpGet]
+    // [Route("get-all")]
+    // public async Task<IActionResult> GetAllAsync()
+    // {
+    //     var result = await _repository.ObtenerTodosAsync();
+    //     if (!result.Any())
+    //     {
+    //         return NoContent();
+    //     }
+    //     return Ok(result);
+    // }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    //[Route("get-all")]
+    public  IActionResult AsignarClientePatio([FromBody] ClientePatioDto obj)
+    {
+        var result =  _infraest.AgregarAsync(new ClientePatio());
+       
+        return Ok(result.Result);
     }
 
 

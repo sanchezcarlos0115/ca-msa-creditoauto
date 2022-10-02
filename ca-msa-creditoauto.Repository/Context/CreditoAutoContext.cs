@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using camsacreditoauto.Entity.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-
+//using System.Data.Entity.DbContext
 
 namespace camsacreditoauto.Repository.Context
 {
@@ -18,6 +19,15 @@ namespace camsacreditoauto.Repository.Context
             : base(options)
         {
         }
+
+        //public CreditoAutoContext(DbConnection connection) : base(connection, contextOwnsConnection: true)
+        //{
+        //}
+
+        //public CreditoAutoContext(DbConnection connection) : base(connection, true)
+        //{
+        //}
+
 
         public virtual DbSet<Cliente> Clientes { get; set; } = null!;
         public virtual DbSet<ClientePatio> ClientePatios { get; set; } = null!;

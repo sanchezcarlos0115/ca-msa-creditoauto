@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace camsacreditoauto.Domain.Interfaces;
 
-public interface IAsignarCliente : IRepository<ClientePatio>
+public interface IAsignarClienteInfraestructure : IRepository<ClientePatio>
 {
     Task<bool> ExistAsync(int id);
 }

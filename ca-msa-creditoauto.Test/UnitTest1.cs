@@ -1,12 +1,12 @@
-using Xunit;
 
-namespace camsacreditoauto.Test;
 
-public class UnitTest1
-{
-    [Fact]
-    public void Test1()
-    {
+//namespace camsacreditoauto.Test;
 
-    }
-}
+//public class UnitTest1
+//{
+//    [Fact]
+//    public void Test1()
+//    {
+
+//    }
+//}
