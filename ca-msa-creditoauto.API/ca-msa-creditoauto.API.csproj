@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-	<GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>    
@@ -20,6 +19,10 @@
   <ItemGroup>
     <ProjectReference Include="..\ca-msa-creditoauto.Entity\ca-msa-creditoauto.Entity.csproj" />
     <ProjectReference Include="..\ca-msa-creditoauto.Infrastructure\ca-msa-creditoauto.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataLoad\" />
   </ItemGroup>
 
  

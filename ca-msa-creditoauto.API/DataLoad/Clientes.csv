@@ -1,0 +1,5 @@
+Identificacion,Nombres,Apellidos,Edad,Direccion,Telefono,FechaNacimiento,EstadoCivil,IdentificacionConyuge,NombresConyuge,SujetoCredito
+"0920693975","Carlos Xavier","Sanchez Velez",35,"Los esteros mz 29 v21","242354","1984-01-15","C","0926420357","Evelyn Santos",true
+"0926420357","Evelyn Vanessa","Santos Rocafuerte",34,"Los esteros 3 mz A1 v21","24566556","1988-06-18","C","0920693975","Carlos Sanchez",true
+"0955081724","Hector Santiago","Baque Santos",24,"Cdla Santa monica mz 24 v24","2456365","1998-07-13","S","","",false
+"0964214373","Eipril Alaia","Sanchez Santos",18,"Coop. Libertad y Conciencia Mz 1481 SL 07","1246365","1998-04-15","S","","",false
