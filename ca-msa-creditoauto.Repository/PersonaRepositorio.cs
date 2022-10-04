@@ -35,7 +35,7 @@ public class PersonaRepositorio : IPersonaRepositorio
             await appDbContext.SaveChangesAsync();
             return result.Entity.PersonaId;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
            return 0;
         }   

@@ -10,6 +10,8 @@ public interface IClientePatioInfraestructura
 
     Task<ResponseType<ClientePatioType>> ObtenerClientePatio(int id);
 
+    Task<ResponseType<ClientePatioType>> ObtenerClientePatioPorIdCliente(int id);
+
     Task<ResponseType<int>> AgregarClientePatio(ClientePatioType cliente);
 
     Task<ResponseType<ClientePatioType>> ActualizarClientePatio(int id, ClientePatioType cliente);

@@ -12,6 +12,8 @@ public interface IClientePatioRepositorio
 
     Task<ClientePatio> ObtenerClientePatio(int id);
 
+    Task<ClientePatio> ObtenerClientePatioPorIdCliente(int idCliente);
+
     Task<int> AgregarClientePatio(ClientePatio obj);
 
     Task<ClientePatio> ActualizarClientePatio(int id, ClientePatio obj);

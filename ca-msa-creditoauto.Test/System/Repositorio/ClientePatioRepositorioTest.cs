@@ -1,17 +1,10 @@
-﻿using camsacreditoauto.Domain.Comun.Wrappers;
-using camsacreditoauto.Domain.Interfaces;
-using camsacreditoauto.Entity.Models;
-using camsacreditoauto.Infrastructure.Services;
-using camsacreditoauto.Repository;
+﻿using camsacreditoauto.Repository;
 using camsacreditoauto.Repository.Context;
 using camsacreditoauto.Test.MockData;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using Moq;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 

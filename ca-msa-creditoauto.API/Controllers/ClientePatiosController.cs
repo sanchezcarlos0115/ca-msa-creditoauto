@@ -1,5 +1,4 @@
-﻿using camsacreditoauto.Domain.Comun.Wrappers;
-using camsacreditoauto.Domain.Interfaces;
+﻿using camsacreditoauto.Domain.Interfaces;
 using camsacreditoauto.Entity.Dto;
 using Microsoft.AspNetCore.Mvc;
 

@@ -41,6 +41,16 @@ public class ClientePatioRepositorio : IClientePatioRepositorio
         return objResult ?? null!;
     }
 
+    public async Task<ClientePatio> ObtenerClientePatioPorIdCliente(int idCliente)
+    {
+
+        var objResult = await appDbContext.ClientePatios
+                           .Where(c => c.ClienteId == idCliente)
+                           .FirstOrDefaultAsync();
+
+        return objResult ?? null!;
+    }
+
     public async Task<int> AgregarClientePatio(ClientePatio obj)
     {
         try

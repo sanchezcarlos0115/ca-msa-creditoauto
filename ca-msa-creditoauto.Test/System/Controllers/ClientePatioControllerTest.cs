@@ -24,7 +24,7 @@ public class ClientePatioControllerTest
         // Arrange
         var controller = new ClientePatiosController(mock_infraestruStub.Object);
         // Act
-        var objresult = await controller.AgregarClientePatioAsync(null);
+        var objresult = await controller.AgregarClientePatioAsync(null!);
         // Assert
         objresult.Should().BeOfType<BadRequestResult>();
     }

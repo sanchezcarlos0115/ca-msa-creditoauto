@@ -51,6 +51,23 @@ public class ClientePatioInfraestructura : IClientePatioInfraestructura
         return new ResponseType<ClientePatioType>() { Data = null, Succeeded = false, Message = $"No existe información con el Id: {id} de asignación", StatusCode = "999" };
     }
 
+    public async Task<ResponseType<ClientePatioType>> ObtenerClientePatioPorIdCliente(int id)
+    {
+        var cliente = await _clienteRepo.ObtenerClientePatioPorIdCliente(id);
+        if (cliente is not null)
+        {
+            var objType = new ClientePatioType()
+            {
+                ClientePatioId = cliente.ClientePatioId,
+                ClienteId = cliente.ClienteId,
+                PatioId = cliente.PatioId,
+                FechaAsignacion = cliente.FechaAsignacion
+            };
+            return new ResponseType<ClientePatioType>() { Data = objType, Succeeded = true, Message = "Consulta exitosa", StatusCode = "000" };
+        }
+        return new ResponseType<ClientePatioType>() { Data = null, Succeeded = false, Message = $"No existe información con el Id: {id} de asignación", StatusCode = "999" };
+    }
+
     public async Task<ResponseType<int>> AgregarClientePatio(ClientePatioType cliente)
     {
 
