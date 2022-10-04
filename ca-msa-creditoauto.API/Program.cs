@@ -16,6 +16,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+#region Registro Interfaces
 
 builder.Services.AddTransient<IClienteInfraestructura, ClienteInfraestructura>();
 builder.Services.AddTransient<IClienteRepositorio, ClienteRepositorio>();
@@ -24,12 +25,18 @@ builder.Services.AddTransient<IPatioAutoInfraestructura, PatioAutoInfraestructur
 builder.Services.AddTransient<IPatioAutoRepositorio, PatioAutoRepositorio>();
 builder.Services.AddTransient<IClientePatioInfraestructura,ClientePatioInfraestructura>();
 builder.Services.AddTransient<IClientePatioRepositorio, ClientePatioRepositorio>();
+builder.Services.AddTransient<ISolicitudInfraestructura, SolicitudInfraestructura>();
+builder.Services.AddTransient<ISolicitudRepositorio, SolicitudRepositorio>();
+builder.Services.AddTransient<IVehiculoInfraestructura, VehiculoInfraestructura>();
+builder.Services.AddTransient<IVehiculoRepositorio, VehiculoRepositorio>();
+
+#endregion
 
 var app = builder.Build();
 
 var scope = app.Services.CreateScope();
 var _context = scope.ServiceProvider.GetService<CreditoAutoContext>();
-DbInitializer.InitializeDb(_context);
+DbInitializer.InitializeDb(_context ?? null!);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

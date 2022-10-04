@@ -17,6 +17,8 @@ public class SolicitudInfraestructura : ISolicitudInfraestructura
 
     public async Task<ResponseType<int>> GenerarSolicitudCreditoAsync(SolicitudType sol)
     {
+        if(!_solRepo.ValidarClienteSujetoCredito(sol.ClienteId).Result)
+            return new ResponseType<int>() { Data = -1, Succeeded = false, Message = "El cliente no es sujeto de crédito", StatusCode = "993" };
 
         if (!_solRepo.ExisteSolicitudClienteMismoDiaActiva(sol.ClienteId).Result) 
         {
@@ -44,7 +46,7 @@ public class SolicitudInfraestructura : ISolicitudInfraestructura
                         EjecutivoId = sol.EjecutivoId,
                         Entrada = sol.Entrada,
                         EstadoId = sol.EstadoId,
-                        FechaElaboracion = sol.FechaElaboracion,
+                        FechaElaboracion = DateTime.Now,
                         MesesPlazo = sol.MesesPlazo,
                         Observación = sol.Observación,
                         VehiculoId = sol.VehiculoId

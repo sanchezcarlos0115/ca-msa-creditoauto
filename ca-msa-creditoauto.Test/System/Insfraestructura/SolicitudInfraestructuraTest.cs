@@ -18,8 +18,27 @@ public class SolicitudInfraestructuraTest
     private Mock<IClientePatioInfraestructura> mock_patio_repoStub = new();
 
     [Fact]
+    public async Task ValidaCliente_SujetoCredito()
+    {
+        mock_repositorioStub.Setup(m => m.ValidarClienteSujetoCredito(It.IsAny<int>()))
+            .ReturnsAsync(false);
+
+        ISolicitudInfraestructura objInfr = new SolicitudInfraestructura(mock_repositorioStub.Object, mock_patio_repoStub.Object);
+        var objResult = await objInfr.GenerarSolicitudCreditoAsync(SolicitudMockData.NuevaSolicitud());
+
+        objResult?.Data.Should().Be(-1);
+        objResult?.Succeeded.Should().Be(false);
+        objResult?.StatusCode.Should().Be("993");
+
+    }
+
+
+    [Fact]
     public async Task ValidarExistenciaSolicitud_ClienteMismoDia()
     {
+        mock_repositorioStub.Setup(m => m.ValidarClienteSujetoCredito(It.IsAny<int>()))
+           .ReturnsAsync(true);
+
         mock_repositorioStub.Setup(m => m.ExisteSolicitudClienteMismoDiaActiva(It.IsAny<int>()))
             .ReturnsAsync(true);
 
@@ -35,6 +54,9 @@ public class SolicitudInfraestructuraTest
     [Fact]
     public async Task ValidarSolictudActivaVehiculo()
     {
+        mock_repositorioStub.Setup(m => m.ValidarClienteSujetoCredito(It.IsAny<int>()))
+          .ReturnsAsync(true);
+
         mock_repositorioStub.Setup(m => m.ExisteSolicitudClienteMismoDiaActiva(It.IsAny<int>()))
             .ReturnsAsync(false);
 
@@ -53,6 +75,9 @@ public class SolicitudInfraestructuraTest
     [Fact]
     public async Task AsignacionClientePatio_Existente()
     {
+        mock_repositorioStub.Setup(m => m.ValidarClienteSujetoCredito(It.IsAny<int>()))
+          .ReturnsAsync(true);
+
         mock_repositorioStub.Setup(m => m.ExisteSolicitudClienteMismoDiaActiva(It.IsAny<int>()))
             .ReturnsAsync(false);
 
@@ -74,6 +99,9 @@ public class SolicitudInfraestructuraTest
     [Fact]
     public async Task ObtenerAsignacionClientePatio_Fallida()
     {
+        mock_repositorioStub.Setup(m => m.ValidarClienteSujetoCredito(It.IsAny<int>()))
+          .ReturnsAsync(true);
+
         mock_repositorioStub.Setup(m => m.ExisteSolicitudClienteMismoDiaActiva(It.IsAny<int>()))
             .ReturnsAsync(false);
 
@@ -97,6 +125,9 @@ public class SolicitudInfraestructuraTest
     [Fact]
     public async Task GenerarSolicitudCredito_Fallida()
     {
+        mock_repositorioStub.Setup(m => m.ValidarClienteSujetoCredito(It.IsAny<int>()))
+          .ReturnsAsync(true);
+
         mock_repositorioStub.Setup(m => m.ExisteSolicitudClienteMismoDiaActiva(It.IsAny<int>()))
             .ReturnsAsync(false);
 
@@ -124,6 +155,9 @@ public class SolicitudInfraestructuraTest
     [Fact]
     public async Task GenerarSolicitudCredito_Exitosa()
     {
+        mock_repositorioStub.Setup(m => m.ValidarClienteSujetoCredito(It.IsAny<int>()))
+          .ReturnsAsync(true);
+
         mock_repositorioStub.Setup(m => m.ExisteSolicitudClienteMismoDiaActiva(It.IsAny<int>()))
             .ReturnsAsync(false);
 

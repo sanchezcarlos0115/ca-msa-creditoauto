@@ -19,6 +19,13 @@ public class SolicitudRepositorio : ISolicitudRepositorio
         this.appDbContext = appDbContext;
     }
 
+    public async Task<bool> ValidarClienteSujetoCredito(int clienteId)
+    {
+        
+        return await appDbContext.Clientes.AnyAsync(z => z.ClienteId == clienteId && z.SujetoCredito == true);
+
+    }
+
     public async Task<bool> ExisteSolicitudClienteMismoDiaActiva(int clienteId)
     {
         //EstadoId 1 - Registrada / 2 - Despachada / 3 - Cancelada

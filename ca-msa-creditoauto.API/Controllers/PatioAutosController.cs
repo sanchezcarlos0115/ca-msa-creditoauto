@@ -19,80 +19,49 @@ public class PatioAutosController : ControllerBase
     [HttpGet("GetPatioAutosAsync")]
     public async Task<IActionResult> GetPatioAutosAsync()
     {
-        try
-        {
-            return Ok(await _infraestructura.ObtenerPatioAutos());
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message.ToString());
-        }
+       return Ok(await _infraestructura.ObtenerPatioAutos());
     }
 
     [HttpGet]
     public async Task<IActionResult> GetPatioAutoAsync(int id)
     {
-        try
-        {
-            var result = await _infraestructura.ObtenerPatioAuto(id);
-            if (!result.Succeeded) return NotFound();
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message.ToString());
-        }
+        var result = await _infraestructura.ObtenerPatioAuto(id);
+        if (!result.Succeeded) return NotFound();
+        return Ok(result);
     }
 
     [HttpPost]
     public async Task<IActionResult> AgregarPatioAutoAsync([FromBody] PatioAutoType patio)
     {
-        try
-        {
-            if (patio == null)
-                return BadRequest();
-            return Ok(await _infraestructura.AgregarPatioAuto(patio));
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message.ToString());
-        }
+        if (patio == null)
+            return BadRequest();
+        return Ok(await _infraestructura.AgregarPatioAuto(patio));
     }
 
     [HttpPut]
     public async Task<IActionResult> ActualizarPatioAutoAsync(int id,[FromBody] PatioAutoType patio)
     {
-        try
-        {
-            var patioAct = await _infraestructura.ObtenerPatioAuto(id);
-            if (!patioAct.Succeeded)
-                return NotFound();
+       
+        var patioAct = await _infraestructura.ObtenerPatioAuto(id);
+        if (!patioAct.Succeeded)
+            return NotFound();
 
-            return Ok(await _infraestructura.ActualizarPatioAuto(id, patio));
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message.ToString());
-        }
+        return Ok(await _infraestructura.ActualizarPatioAuto(id, patio));
+       
     }
 
 
     [HttpDelete]
     public async Task<IActionResult> EliminarPatioAutoAsync(int id)
     {
-        try
+       
+        var objEliminar = await _infraestructura.ObtenerPatioAuto(id);
+        if (!objEliminar.Succeeded)
         {
-            var objEliminar = await _infraestructura.ObtenerPatioAuto(id);
-            if (!objEliminar.Succeeded)
-            {
-                return NotFound();
-            }
-            return Ok(await _infraestructura.EliminarPatioAuto(id));
+            return NotFound();
         }
-        catch (Exception ex)
-        {
-            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message.ToString());
-        }
+        return Ok(await _infraestructura.EliminarPatioAuto(id));
+       
     }
 
 }

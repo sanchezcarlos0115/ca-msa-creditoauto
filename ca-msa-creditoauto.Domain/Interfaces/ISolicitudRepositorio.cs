@@ -3,7 +3,7 @@ namespace camsacreditoauto.Domain.Interfaces;
 
 public interface ISolicitudRepositorio
 {
-
+    Task<bool> ValidarClienteSujetoCredito(int clienteId);
     Task<bool> ExisteSolicitudClienteMismoDiaActiva(int clienteId);
 
     Task<bool> ValidarSolictudActivaVehiculo(int vehiculoId);
