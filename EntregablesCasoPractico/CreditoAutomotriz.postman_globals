@@ -1,0 +1,21 @@
+{
+	"id": "146e52f0-fd32-4814-8e58-8a3c0f4d5eb7",
+	"values": [
+		{
+			"key": "servidor",
+			"value": "https://localhost",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "puerto",
+			"value": "7291",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "My Workspace Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2022-10-04T18:07:31.351Z",
+	"_postman_exported_using": "Postman/9.31.0"
+}

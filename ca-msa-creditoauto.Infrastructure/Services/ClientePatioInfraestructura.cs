@@ -8,11 +8,13 @@ namespace camsacreditoauto.Infrastructure.Services;
 public class ClientePatioInfraestructura : IClientePatioInfraestructura
 {
     private readonly IClientePatioRepositorio _clienteRepo;
-   
-    public ClientePatioInfraestructura(IClientePatioRepositorio clienteRepo)
+    private readonly ISolicitudRepositorio _solRepo;
+    
+
+    public ClientePatioInfraestructura(IClientePatioRepositorio clienteRepo, ISolicitudRepositorio solRepo)
     {
         _clienteRepo = clienteRepo;
-
+        _solRepo = solRepo;
     }
 
     public async Task<ResponseType<IEnumerable<ClientePatioType>>> ObtenerClientePatios()
@@ -112,10 +114,11 @@ public class ClientePatioInfraestructura : IClientePatioInfraestructura
 
     public async Task<ResponseType<bool>> EliminarClientePatio(int id)
     {
-       
-        //si al cliente se le ha generado una solicitud no se puede eliminar
-        var result = await _clienteRepo.EliminarClientePatio(id);
 
+        if (_solRepo.ValidarSolicitudActiva_ClientePatio(id).Result)
+            return new ResponseType<bool>() { Data = false, Succeeded = false, Message = $"No se puede eliminar la asignación de cliente patio de auto con Id: {id} porque se encuentra relacionado", StatusCode = "999" };
+
+        var result = await _clienteRepo.EliminarClientePatio(id);
         return new ResponseType<bool>() { Data = result, Succeeded = true, Message = $"La asignación del clientePatioId: {id} fue eliminado exitosamente", StatusCode = "000"};
      
     }

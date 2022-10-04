@@ -10,8 +10,4 @@
     <ProjectReference Include="..\ca-msa-creditoauto.Entity\ca-msa-creditoauto.Entity.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Comun\Mappings\" />
-  </ItemGroup>
-
 </Project>

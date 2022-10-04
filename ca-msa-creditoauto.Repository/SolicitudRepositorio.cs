@@ -2,11 +2,6 @@
 using camsacreditoauto.Entity.Models;
 using camsacreditoauto.Repository.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace camsacreditoauto.Repository;
 
@@ -37,6 +32,13 @@ public class SolicitudRepositorio : ISolicitudRepositorio
         }
         return false;
     }
+
+    public async Task<bool> ValidarSolicitudActiva_ClientePatio(int Id)
+    {
+        //EstadoId 1 - Registrada / 2 - Despachada / 3 - Cancelada
+        return await appDbContext.Solicituds.AnyAsync(z => z.ClientePatioId == Id && z.EstadoId == 1 );      
+    }
+
 
     public async Task<bool> ValidarSolictudActivaVehiculo(int vehiculoId)
     {

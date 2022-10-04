@@ -1,0 +1,649 @@
+{
+	"info": {
+		"_postman_id": "ef0cf68f-2649-4937-aaae-12b07b5d3130",
+		"name": "Credito Automotriz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "ObtenerClientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/Clientes/GetClientesAsync",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"Clientes",
+								"GetClientesAsync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerClientePorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/Clientes?id=2",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"Clientes"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AgregarCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"identificacion\": \"0920693975\",\r\n  \"nombres\": \"Carlos Xavier\",\r\n  \"apellidos\": \"Sanchez Quiñonez\",\r\n  \"edad\": 38,\r\n  \"direccion\": \"Coop. Libertad y Conciencia Mz 1481 Sl 7\",\r\n  \"telefono\": \"0983188551\",\r\n  \"fechaNacimiento\": \"1984-10-03T03:34:08.713Z\",\r\n  \"estadoCivil\": \"C\",\r\n  \"identificacionConyuge\": \"0926420357\",\r\n  \"nombresConyuge\": \"Evelyn Santos\",\r\n  \"sujetoCredito\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/Clientes",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"Clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarCliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"identificacion\": \"0920693975\",\r\n  \"nombres\": \"Carlos Xavier\",\r\n  \"apellidos\": \"Sanchez Quiñonez\",\r\n  \"edad\": 36,\r\n  \"direccion\": \"Coop. Libertad y Conciencia Mz 1481 Sl 07\",\r\n  \"telefono\": \"0983188551\",\r\n  \"fechaNacimiento\": \"1984-10-03T03:34:08.713Z\",\r\n  \"estadoCivil\": \"C\",\r\n  \"identificacionConyuge\": \"0926420357\",\r\n  \"nombresConyuge\": \"Evelyn Santos\",\r\n  \"sujetoCredito\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/Clientes?id=2",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"Clientes"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarCliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/Clientes?id=1",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"Clientes"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AsignarClientePatio",
+			"item": [
+				{
+					"name": "ObtenerAsignacionClientesPatio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/ClientePatios/GetClientePatiosAsync",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"ClientePatios",
+								"GetClientePatiosAsync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AsignarClientePatioAuto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clienteId\": 3,\r\n  \"patioId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/ClientePatios",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"ClientePatios"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerAsignacionClientePatioPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/ClientePatios?id=1",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"ClientePatios"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarAsignacionCliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/ClientePatios?id=2",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"ClientePatios"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActAsignacionClientePatioAuto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clienteId\": 3,\r\n  \"patioId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/ClientePatios?id=4",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"ClientePatios"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PatioAutos",
+			"item": [
+				{
+					"name": "ObtenerPatioAutos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/PatioAutos/GetPatioAutosAsync",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"PatioAutos",
+								"GetPatioAutosAsync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerPatioAutoPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/PatioAutos?id=1",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"PatioAutos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AgregarPatioAuto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Patio test\",\r\n  \"direccion\": \"Dir test\",\r\n  \"telefono\": \"0983186951\",\r\n  \"numeroPtoVenta\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/PatioAutos",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"PatioAutos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarPatioAuto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Patio 2\",\r\n  \"direccion\": \"Dir test 2\",\r\n  \"telefono\": \"0983186551\",\r\n  \"numeroPtoVenta\": 14\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/PatioAutos?id=2",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"PatioAutos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarPatioAuto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/PatioAutos?id=2",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"PatioAutos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Solicitud",
+			"item": [
+				{
+					"name": "GenerarSolicitud",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clienteId\": 1,\r\n  \"patioId\": 1,\r\n  \"vehiculoId\": 1,\r\n  \"mesesPlazo\": 72,\r\n  \"cuotas\": 48,\r\n  \"entrada\": 5000,\r\n  \"ejecutivoId\": 1,\r\n  \"observación\": \"Solicitud de prueba\",\r\n  \"estadoId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/Solicitud",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"Solicitud"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehiculos",
+			"item": [
+				{
+					"name": "ObtenerVehiculos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/Vehiculos/GetVehiculosAsync",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"Vehiculos",
+								"GetVehiculosAsync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerVehiculosFiltrado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/Vehiculos/GetVehiculosFiltradoAsync?marca=Chevrolet&modelo=string",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"Vehiculos",
+								"GetVehiculosFiltradoAsync"
+							],
+							"query": [
+								{
+									"key": "marca",
+									"value": "Chevrolet"
+								},
+								{
+									"key": "modelo",
+									"value": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerVehiculo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/Vehiculos?id=1",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"Vehiculos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AgregarVehiculo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"placa\": \"2545-xxxx\",\r\n  \"modelo\": \"modelo 1\",\r\n  \"nroChasis\": \"XXX365\",\r\n  \"marcaId\": 1,\r\n  \"patioId\": 1,\r\n  \"tipo\": \"tipo 1\",\r\n  \"cilindraje\": 1.6,\r\n  \"avaluo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/Vehiculos",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"Vehiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarVehiculo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"placa\": \"XZRT-4598\",\r\n  \"modelo\": \"Modelo 1\",\r\n  \"nroChasis\": \"XXX2365\",\r\n  \"marcaId\": 1,\r\n  \"patioId\": 1,\r\n  \"tipo\": \"Tipo 1\",\r\n  \"cilindraje\": 1.5,\r\n  \"avaluo\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/Vehiculos?id=1",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"Vehiculos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarVehiculo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{servidor}}:{{puerto}}/api/v1/Vehiculos?id=1",
+							"host": [
+								"{{servidor}}"
+							],
+							"port": "{{puerto}}",
+							"path": [
+								"api",
+								"v1",
+								"Vehiculos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

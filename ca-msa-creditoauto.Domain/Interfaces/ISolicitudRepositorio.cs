@@ -10,5 +10,5 @@ public interface ISolicitudRepositorio
 
     Task<int> GenerarSolicitudCredito(Solicitud obj);
 
-    
+    Task<bool> ValidarSolicitudActiva_ClientePatio(int Id);
 }

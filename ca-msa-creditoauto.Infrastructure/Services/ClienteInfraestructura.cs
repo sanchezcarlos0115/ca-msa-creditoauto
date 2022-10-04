@@ -150,9 +150,7 @@ public class ClienteInfraestructura : IClienteInfraestructura
 
     public async Task<ResponseType<bool>> EliminarCliente(int clienteId)
     {
-        //si el cliente esta asignado a un patio no se puede eliminar
-        //si al cliente se le ha generado una solicitud no se puede eliminar
-        //antes de eliminar validar si no esta asociado
+
         if (!_cl_patio_Repo.ExisteClienteAsignado(clienteId).Result)
         {
             var result = await _clienteRepo.EliminarCliente(clienteId);

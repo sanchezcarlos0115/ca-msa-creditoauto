@@ -15,7 +15,8 @@ public class ClientePatioInfraestructuraTest
 {
     private  Mock<IClientePatioInfraestructura> mock_infraestruStub = new();
     private  Mock<IClientePatioRepositorio> mock_repositorioStub = new();
-    
+    private Mock<ISolicitudRepositorio> mock_sol_repositorioStub = new();
+
     [Fact]
     public async Task AgregarClientePatioAsync_ConNuevoRegistro_RortornaExitosa()
     {
@@ -28,7 +29,7 @@ public class ClientePatioInfraestructuraTest
         mock_infraestruStub.Setup(repo => repo.AgregarClientePatio(It.IsAny<ClientePatioType>()))
            .ReturnsAsync(new ResponseType<int>() { Succeeded = true, StatusCode = "000", Data = 1 });
 
-        IClientePatioInfraestructura objInfr = new ClientePatioInfraestructura(mock_repositorioStub.Object);
+        IClientePatioInfraestructura objInfr = new ClientePatioInfraestructura(mock_repositorioStub.Object, mock_sol_repositorioStub.Object);
         var objResult = await objInfr.AgregarClientePatio(ClientePatioMockData.NuevoClientePatio());
        
         objResult?.Data.Should().Be(5);
